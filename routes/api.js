@@ -15,41 +15,5 @@ api.get('/notes', (req, res) => {
   })
 });
 
-// api.post('/notes', (req, res) => {
-//   console.log(req.body);
-
-//   const { isValid, errors } = req.body;
-
-//   const payload = {
-//     title: req.body.title,
-//     text: req.body.text,
-//     id: uuidv4(),
-//   }
-//   if (!isValid) {
-//     readAndAppend(payload, './db/db.json');
-//     res.json(`Diagnostic information added 🔧`);
-//   } else {
-//     res.json({
-//       message: 'Object is valid, not logging. Check front end implementation',
-//       error_id: payload.error_id,
-//     });
-//   }
-// });
-
-
-// api.post('/notes', (req, res) => {
-//   let db = fs.readFileSync('db/db.json');
-//   db = JSON.parse(db);
-//   res.json(db);
-//   let userNote = {
-//     title: req.body.title,
-//     text: req.body.text,
-//     id: uuidv4(),
-//   };
-//   db.push(userNote);
-//   fs.writeFileSync('db/db.json', JSON.stringify(db));
-//   res.json(db);
-
-// });
 
   module.exports = api;
