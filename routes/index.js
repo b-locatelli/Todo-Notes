@@ -4,6 +4,6 @@ const apiRouter = require('./api')
 
 const app = express()
 
-app.use('/api', apiRouter)
+app.use('/', apiRouter)
 
 module.exports = app;
