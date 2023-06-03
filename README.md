@@ -33,8 +33,8 @@
   * Github: https://github.com/b-locatelli
   * Email: bailylocatelli@gmail.com
 
-github : https://github.com/b-locatelli/Todo-Notes
+github: https://github.com/b-locatelli/Todo-Notes
 
 app: https://todonotes.herokuapp.com/
 
-demo: https://drive.google.com/file/d/1fUwQyMvzH4LjhXDTtt5Pj_0xJEC6SCPZ/view
+demo: https://drive.google.com/file/d/1LwJUIwET09xkzCw4C3nbLieh0Mp2UabK/view
