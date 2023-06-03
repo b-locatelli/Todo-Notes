@@ -1,6 +1,5 @@
 const api = require('express').Router();
-const path = require('path')
-const fs = require('fs')
+const fs = require('fs');
 const { v4: uuidv4 } = require('uuid');
 const { readAndAppend, readFromFile } = require('../helpers/fsUtils');
 
@@ -17,7 +16,7 @@ api.get('/notes', (req, res) => {
 
 
 api.post('/notes', (req, res) => {
-  const { title, text } = req.body;
+  const { title, text } = {...req.body};
   console.log(req.body)
   if (title && text ) {
     const newApi = {
@@ -25,7 +24,7 @@ api.post('/notes', (req, res) => {
       text,
       id: uuidv4(),
     };
-    readAndAppend(newApi, './db/db.json');
+    readAndAppend(newApi, 'db/db.json');
     const response = {
       status: 'success',
       body: newApi,
@@ -36,4 +35,11 @@ api.post('/notes', (req, res) => {
   }
 });
 
-  module.exports = api;
+api.delete('/notes/:id', (req, res) => {
+  let db = JSON.parse(fs.readFileSync('db/db.json'));
+  let deleteNotes = db.filter(item => item.id !== req.params.id);
+  fs.writeFileSync('db/db.json', JSON.stringify(deleteNotes));
+  res.json(deleteNotes);
+});
+
+module.exports = api;
